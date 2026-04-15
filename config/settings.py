@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "INFO"
 
     # Database connection
-    DATABASE_URL: str = "postgresql://postgres:password@localhost:5432/pqc_scanner"
+    DATABASE_URL: str = "sqlite+pysqlite:///:memory:"
 
     # Security & CORS
     SECRET_KEY: str = "your-super-secret-default-key-change-in-prod"

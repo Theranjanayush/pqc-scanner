@@ -13,20 +13,20 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
-        whileHover={{ scale: 1.02, y: -2 }}
+        whileHover={{ scale: 1.01, y: -1 }}
         whileTap={{ scale: 0.98 }}
         disabled={isLoading || disabled}
         className={`
-          relative w-full h-14 bg-linear-to-r from-primary via-indigo-500 to-purple-600
-          text-white font-extrabold text-[1.05rem] rounded-2xl shadow-lg shadow-primary/25
-          flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-primary/40
+          relative w-full h-14 rounded-2xl bg-linear-to-r from-primary to-sky-500
+          flex items-center justify-center overflow-hidden text-white shadow-lg shadow-primary/20
+          transition-all duration-300 hover:shadow-primary/30
           disabled:opacity-70 disabled:cursor-not-allowed
           animate-gradient bg-size-[200%_auto]
           ${className || ""}
         `}
         {...props}
       >
-        <div className="absolute inset-0 bg-white/20 opacity-0 hover:opacity-100 transition-opacity duration-300 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300 mix-blend-overlay" />
         
         {isLoading ? (
           <motion.div
@@ -35,10 +35,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             className="flex items-center justify-center"
           >
             <Loader2 className="w-6 h-6 animate-spin" />
-            <span className="ml-2 font-semibold tracking-wide">Processing...</span>
+            <span className="ml-2 font-semibold tracking-wide">Please wait...</span>
           </motion.div>
         ) : (
-          <span className="relative z-10 flex items-center justify-center w-full tracking-wide">
+          <span className="relative z-10 flex w-full items-center justify-center text-base font-semibold tracking-[0.01em]">
             {children as React.ReactNode}
           </span>
         )}

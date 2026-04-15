@@ -56,16 +56,19 @@ export default function RegisterPage() {
   };
 
   return (
-    <AuthCard title="Create Account">
-      {error && <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-500 text-sm font-semibold">{error}</div>}
+    <AuthCard
+      title="Create Account"
+      subtitle="Set up access for the dashboard and continue to verification."
+    >
+      {error && <div className="rounded-2xl border border-red-500/35 bg-red-500/8 p-3 text-sm font-medium text-red-600">{error}</div>}
       <form onSubmit={handleRegister} className="flex flex-col gap-3 mt-2">
         <Input label="Full Name" name="fullName" type="text" placeholder="Ayush Ranjan" icon={User} required />
-        <Input label="Email Address" name="email" type="email" placeholder="[EMAIL_ADDRESS]" icon={Mail} required />
+        <Input label="Email Address" name="email" type="email" placeholder="name@organization.com" icon={Mail} required />
         <Input label="Phone Number" name="phone" type="tel" placeholder="+91 0000000000" icon={Phone} required />
         <Input label="Password" name="password" type="password" placeholder="Create a strong password" icon={Lock} required />
 
         <Button type="submit" isLoading={isLoading} className="mt-4">
-          Register & Continue
+          Continue to verification
         </Button>
       </form>
 

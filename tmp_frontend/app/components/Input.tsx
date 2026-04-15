@@ -18,7 +18,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="flex flex-col gap-1.5 w-full">
-        <label className={`text-sm font-bold pl-1 transition-colors duration-300 ${isFocused ? 'text-primary' : 'text-card-foreground/80'}`}>{label}</label>
+        <label className={`pl-1 text-sm font-semibold transition-colors duration-300 ${isFocused ? "text-primary" : "text-card-foreground/80"}`}>{label}</label>
         <div className="relative group">
           {Icon && (
             <div className={`absolute left-4 top-1/2 -translate-y-1/2 transition-all duration-300 ${isFocused ? 'text-primary scale-110' : 'text-card-foreground/40'}`}>
@@ -37,10 +37,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               props.onBlur?.(e);
             }}
             className={`
-              w-full h-14 bg-input-background border-[1.5px] border-input-border/60 text-foreground
-              rounded-2xl px-4 py-2 transition-all duration-300 outline-none shadow-sm shadow-black/5
+              h-14 w-full rounded-2xl border border-input-border/65 bg-input-background px-4 py-2 text-foreground
+              shadow-sm shadow-black/5 outline-none transition-all duration-300
               ${Icon ? "pl-12" : ""}
               ${isPassword ? "pr-12" : ""}
+              placeholder:text-card-foreground/38
               focus:bg-white dark:focus:bg-slate-900/60 focus:border-primary focus:ring-4 focus:ring-primary/10
               hover:border-input-border
               ${error ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" : ""}
@@ -59,7 +60,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-        {error && <span className="text-xs text-red-500 font-bold pl-1 mt-1">{error}</span>}
+        {error && <span className="mt-1 pl-1 text-xs font-medium text-red-500">{error}</span>}
       </div>
     );
   }

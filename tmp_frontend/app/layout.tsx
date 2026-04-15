@@ -11,8 +11,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PNB Hackathon Auth",
-  description: "Premium Authentication system built for standard hackathon compliance.",
+  title: "PQC Scanner",
+  description: "Banking-focused cryptographic discovery and post-quantum readiness dashboard.",
 };
 
 export default async function RootLayout({
@@ -28,7 +28,7 @@ export default async function RootLayout({
       <body className="font-sans min-h-full flex flex-col items-center transition-colors duration-500 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Header isLoggedIn={isLoggedIn} />
-          <main className="flex-1 w-full max-w-7xl mx-auto p-4 flex flex-col mt-[5vh] items-center mb-8 z-10 relative">
+          <main className="relative z-10 mx-auto mb-8 flex w-full max-w-7xl flex-1 flex-col items-center px-4 pb-4 pt-6 md:px-6">
             {children}
           </main>
         </ThemeProvider>

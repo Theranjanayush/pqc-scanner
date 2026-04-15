@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'C:\Users\LENOVO\Documents\mycode\pqc-scanner\venv'
+set -gx VIRTUAL_ENV 'C:\Users\91878\OneDrive\coding\development\auth-nextjs\pqc-scanner\venv'
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"Scripts $PATH

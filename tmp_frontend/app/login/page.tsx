@@ -35,22 +35,19 @@ export default function LoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      
+
       const data = await res.json();
-      
+
       if (!res.ok) {
         throw new Error(data.error || "Failed to login");
       }
-      
+
       if (data.unverified) {
-        // Needs OTP
         localStorage.setItem("verifyEmail", email);
         router.push("/verify");
       } else {
-        // Successfully logged in
         window.location.href = "/dashboard";
       }
-      
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -59,46 +56,46 @@ export default function LoginPage() {
   };
 
   return (
-    <AuthCard 
-      title="Welcome Back" 
-      subtitle="Sign in to your Hackathon dashboard to continue your progress."
+    <AuthCard
+      title="Welcome Back"
+      subtitle="Sign in to continue reviewing assets, scan results, and migration priorities."
     >
-      {error && <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-500 text-sm font-semibold">{error}</div>}
-      <form onSubmit={handleLogin} className="flex flex-col gap-3 mt-4">
-        <Input 
-          label="Email Address" 
+      {error && <div className="rounded-2xl border border-red-500/35 bg-red-500/8 p-3 text-sm font-medium text-red-600">{error}</div>}
+      <form onSubmit={handleLogin} className="mt-4 flex flex-col gap-3">
+        <Input
+          label="Email Address"
           name="email"
-          type="email" 
-          placeholder="hacker@university.edu" 
-          icon={Mail} 
-          required 
+          type="email"
+          placeholder="name@organization.com"
+          icon={Mail}
+          required
         />
         <div>
-          <Input 
-            label="Password" 
+          <Input
+            label="Password"
             name="password"
-            type="password" 
-            placeholder="••••••••" 
-            icon={Lock} 
-            required 
+            type="password"
+            placeholder="Enter your password"
+            icon={Lock}
+            required
           />
-          <div className="flex justify-end mt-1 mb-2">
-            <Link href="#" className="text-sm font-semibold text-primary hover:underline transition-all">
+          <div className="mb-2 mt-1 flex justify-end">
+            <Link href="#" className="text-sm font-semibold text-primary transition-all hover:underline">
               Forgot password?
             </Link>
           </div>
         </div>
 
-        <Button type="submit" isLoading={isLoading} className="mt-2 group">
+        <Button type="submit" isLoading={isLoading} className="group mt-2">
           Sign In
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
       </form>
 
-      <div className="mt-8 text-center text-sm font-medium text-(--card-foreground)/70">
+      <div className="mt-8 text-center text-sm font-medium text-[var(--card-foreground)]/70">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="text-primary font-bold hover:underline transition-all">
-          Register here
+        <Link href="/register" className="font-bold text-primary transition-all hover:underline">
+          Create one
         </Link>
       </div>
     </AuthCard>
